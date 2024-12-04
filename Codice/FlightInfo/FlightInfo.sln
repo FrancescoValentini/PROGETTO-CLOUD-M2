@@ -5,6 +5,8 @@ VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightInfo", "FlightInfo\FlightInfo.csproj", "{EE45DF8D-8557-4C66-A409-E368EDBCFE94}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirplanesAPI", "AirplanesAPI\AirplanesAPI.csproj", "{A1CFE892-2331-4844-95AC-19C034576BEC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{EE45DF8D-8557-4C66-A409-E368EDBCFE94}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE45DF8D-8557-4C66-A409-E368EDBCFE94}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE45DF8D-8557-4C66-A409-E368EDBCFE94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1CFE892-2331-4844-95AC-19C034576BEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1CFE892-2331-4844-95AC-19C034576BEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1CFE892-2331-4844-95AC-19C034576BEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1CFE892-2331-4844-95AC-19C034576BEC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
