@@ -10,4 +10,10 @@ public class FindAircraftController : Controller
         
         return View();
     }
+    
+    public IActionResult Find()
+    {
+        
+        return View();
+    } 
 }
