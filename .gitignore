@@ -17,6 +17,9 @@
 # QUALSIASI FILE CHE ABBIA 'secret-' nel nome
 secret-*
 
+# FILE MAC OS
+.DS_Store
+
 # --- GENERATO AUTOMATICAMENTE ---
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudio
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudio
