@@ -31,3 +31,10 @@ body {
   text-align : center;
   widht: 30% !important;
 }
+
+/*
+    bootstrap column containing the aircraft details table and map
+*/
+#airplane-details-container-column {
+    padding: 20px;
+}
