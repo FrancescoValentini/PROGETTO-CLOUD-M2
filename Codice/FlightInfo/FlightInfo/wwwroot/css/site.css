@@ -20,3 +20,14 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.paragraph {
+  text-align: justify;
+  text-justify: inter-word;
+  widht: 30% !important;
+}
+
+.div-centered {
+  text-align : center;
+  widht: 30% !important;
+}
