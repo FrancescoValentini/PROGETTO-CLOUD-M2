@@ -1,6 +1,7 @@
 @{
     ViewData["Title"] = "Find Aircraft";
 }
+<!-- SEARCH BOX -->
 <div class="container-lg">
     <div class="container text-center">
         <div class="row row-cols-1">
@@ -19,12 +20,37 @@
                     </div>
             </div>
             <br/>
+            <!-- AIRPLANE DETAILS AND MAP-->
             <div class="col">
                 <div class="container text-center">
                     <div class="row align-items-start">
+                        <!-- AIRPLANE DETAILS-->
                         <div class="col">
-                            Details
+                            <table class="table">
+                                
+                                <thead class="align-right">
+                                    <tr>
+                                        <th scope="col">PARAMETER</th>
+                                        <th scope="col">VALUE</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th class="align-right">ICAO CODE</th>
+                                        <td class="align-right">45FFBA</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="align-right">AIRCRAFT TYPE</th>
+                                        <td class="align-right">CIVILIAN</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="align-right">FLIGHT NAME</th>
+                                        <td class="align-right">DEMO</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
+                        <!-- AIRPLANE MAP -->
                         <div class="col">
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                         </div>
