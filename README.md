@@ -14,7 +14,7 @@ FlightInfo consente di ottenere le informazioni di un aeromobile in volo effettu
 > [!NOTE]
 > **Provenienza delle informazioni**
 > 
-> Le informazioni provengono da una rete di volontari che installano ricevitori per la ricezione del segnale ADS-B o la multilaterazione. questi volontari, chiamati 'feeder', inviano alla piattaforma, che funge da 'concentratore', le informazioni raccolte con i loro apparati.
+> Le informazioni provengono da una rete di volontari che installano ricevitori per la ricezione del segnale ADS-B o la multilaterazione. Questi volontari, chiamati 'feeder', inviano alla piattaforma, che funge da 'concentratore', le informazioni raccolte con i loro apparati.
 
 ## L'ICAO
 L'ICAO (International Civil Aviation Organization) è un'agenzia autonoma delle Nazioni Unite incaricata di sviluppare i principi e le tecniche della navigazione aerea internazionale, delle rotte e degli aeroporti e promuovere la progettazione e lo sviluppo del trasporto aereo internazionale rendendolo più sicuro e ordinato.
