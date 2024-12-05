@@ -1,8 +1,8 @@
 # PROGETTO ESAME Applicazioni Web, Mobile e Cloud (Modulo 2)
 ## MEMBRI DEL GRUPPO
-- Giulia Balestra
-- Giulia Trozzi
-- Francesco Valentini
+- [Giulia Balestra](https://github.com/Giulieen)
+- [Giulia Trozzi](https://github.com/GiuliaTrz)
+- [Francesco Valentini](https://github.com/FrancescoValentini)
 ## DESCRIZIONE DEL PROGETTO
 - [Specifiche del Docente](Documentazione/SpecificheDocente.md)
 - [Specifiche API](Documentazione/DocumentazioneAPI.md)
