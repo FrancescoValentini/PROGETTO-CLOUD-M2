@@ -49,5 +49,8 @@ La principale differenza tra ADS-B e MLAT (Multilaterazione) risiede nel modo in
 
 ADS-B è più preciso e non richiede un’infrastruttura complessa, mentre MLAT può essere meno affidabile in aree con pochi ricevitori sincronizzati.
 ## TECNOLOGIE UTILIZZATE
-- ASP.NET Core MVC
-- Microsoft Visual Studio
+- [ASP.NET Core MVC](https://dotnet.microsoft.com/it-it/apps/aspnet)
+- [Microsoft Visual Studio](https://visualstudio.microsoft.com/it/)
+- [JetBrains Rider](https://www.jetbrains.com/rider/)
+- [Microsoft Visual studio Code](https://code.visualstudio.com/)
+- [Docker](https://www.docker.com/)
