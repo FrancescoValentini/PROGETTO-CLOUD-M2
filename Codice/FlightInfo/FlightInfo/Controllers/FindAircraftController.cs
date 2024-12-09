@@ -17,12 +17,13 @@ public class FindAircraftController : Controller
     public IActionResult Find(int SearchMode, string SearchParam)
     {
         AircraftViewModel vm = new AircraftViewModel();
+
         switch (SearchMode) {
             case 1:
                 vm.Aircraft = AirplanesAPIService.FindAircraftByCallsign(SearchParam);
                 return View(vm);
             case 2:
-                vm.Aircraft = AirplanesAPIService.FindAircraftByCallsign(SearchParam);
+                vm.Aircraft = AirplanesAPIService.FindAircraftByICAOCode(SearchParam);
                 return View(vm);
         }
 
