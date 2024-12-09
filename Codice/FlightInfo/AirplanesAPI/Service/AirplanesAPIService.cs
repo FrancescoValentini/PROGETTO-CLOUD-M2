@@ -1,3 +1,4 @@
+using Newtonsoft.Json;
 using System.Runtime.CompilerServices;
 using static System.Net.WebRequestMethods;
 
@@ -5,7 +6,7 @@ namespace AirplanesAPI.Service;
 
 public class AirplanesAPIService
 {
-    public static async Task<string> DoGETRequest(int Scelta , string ParametroDiRicerca)
+    private static async Task<string> DoGETRequest(int Scelta , string ParametroDiRicerca)
     {
         string BaseUrl = "https://api.airplanes.live/v2/";
 
@@ -34,4 +35,9 @@ public class AirplanesAPIService
 
        return json;
     }
+    private static void ParseJSON (string json)
+    {
+        LocaleBologna[] locale = JsonConvert.DeserializeObject<LocaleBologna[]>(json);
+    }
+
 }
