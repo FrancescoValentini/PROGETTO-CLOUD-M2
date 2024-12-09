@@ -25,7 +25,7 @@ public class Ac
     public int Baro_rate { get; set; }
     public string Squawk { get; set; }
     public string Category { get; set; }
-    public int Nav_qnh { get; set; }
+    public double Nav_qnh { get; set; }
     public int Nav_altitude_mcp { get; set; }
     public int Nav_altitude_fms { get; set; }
     public double Rr_lat { get; set; }

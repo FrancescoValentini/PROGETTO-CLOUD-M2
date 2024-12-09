@@ -27,7 +27,9 @@
             </div>
             <br/>
             @{
-                <h1>Model.Aircraft.Desc</h1>
+                if(Model.Aircraft != null){
+                    <h1>@Model.Aircraft.Desc</h1>
+                }
             }
             <!-- AIRPLANE DETAILS AND MAP-->
             <div class="col" id="airplane-details-container-column">

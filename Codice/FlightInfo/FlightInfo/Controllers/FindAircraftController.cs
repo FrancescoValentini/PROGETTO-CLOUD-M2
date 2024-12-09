@@ -1,32 +1,42 @@
+using AirplanesAPI.Models;
 using AirplanesAPI.Service;
 using FlightInfo.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace FlightInfo.Controllers;
 
 public class FindAircraftController : Controller
 {
+    private AircraftViewModel vm = new AircraftViewModel();
     // GET
     public IActionResult Index()
     {
-        
-        return View();
+        if (TempData["Aircraft"] != null) {
+            var aircraftJson = TempData["Aircraft"] as string;
+            vm.Aircraft = JsonConvert.DeserializeObject<Ac>(aircraftJson);
+        }
+        return View(vm);
     }
 
     [HttpPost]
     public IActionResult Find(int SearchMode, string SearchParam)
     {
-        AircraftViewModel vm = new AircraftViewModel();
-
-        switch (SearchMode) {
+        Ac foundAircraft = null;
+        switch (SearchMode) 
+        {
             case 1:
-                vm.Aircraft = AirplanesAPIService.FindAircraftByCallsign(SearchParam);
-                return View(vm);
+                foundAircraft = AirplanesAPIService.FindAircraftByCallsign(SearchParam);
+                break;
             case 2:
-                vm.Aircraft = AirplanesAPIService.FindAircraftByICAOCode(SearchParam);
-                return View(vm);
+                foundAircraft = AirplanesAPIService.FindAircraftByICAOCode(SearchParam);
+                break;
         }
 
-        return View();
+        if (foundAircraft != null) {
+            TempData["Aircraft"] = JsonConvert.SerializeObject(foundAircraft);
+        }
+
+        return RedirectToAction("Index");
     } 
 }
