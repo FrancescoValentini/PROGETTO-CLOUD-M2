@@ -39,4 +39,6 @@ public class Ac
     public int Messages { get; set; }
     public double Seen { get; set; }
     public double Rssi { get; set; }
+    public double Lat { get; set; }
+    public double Lon { get; set; }
 }
