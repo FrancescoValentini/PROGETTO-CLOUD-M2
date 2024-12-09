@@ -11,7 +11,7 @@ public class Ac
     public string Desc { get; set; }
     public string OwnOp { get; set; }
     public int Alt_baro { get; set; }
-    public int Gs { get; set; }
+    public double Gs { get; set; }
     public int Ias { get; set; }
     public int Tas { get; set; }
     public double Mach { get; set; }
