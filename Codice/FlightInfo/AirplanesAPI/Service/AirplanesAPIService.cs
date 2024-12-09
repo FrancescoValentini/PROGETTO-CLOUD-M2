@@ -1,3 +1,4 @@
+using AirplanesAPI.Models;
 using Newtonsoft.Json;
 using System.Runtime.CompilerServices;
 using static System.Net.WebRequestMethods;
@@ -35,9 +36,22 @@ public class AirplanesAPIService
 
        return json;
     }
-    private static void ParseJSON (string json)
+    private static APIResponse ParseJSON(string json)
     {
-        LocaleBologna[] locale = JsonConvert.DeserializeObject<LocaleBologna[]>(json);
+        APIResponse Response = JsonConvert.DeserializeObject<APIResponse>(json);
+        
+        return Response;
+    }
+
+    public static Ac FindAircraftByICAOCode(string ICAO)
+    {
+        string JSONResponse = DoGETRequest(2, ICAO).Result;
+        return ParseJSON(JSONResponse).Ac.ToArray()[0];
+    }
+    public static Ac FindAircraftByCallsign(string Callsign)
+    {
+        string JSONResponse = DoGETRequest(1, Callsign).Result;
+        return ParseJSON(Callsign).Ac.ToArray()[0];
     }
 
 }
