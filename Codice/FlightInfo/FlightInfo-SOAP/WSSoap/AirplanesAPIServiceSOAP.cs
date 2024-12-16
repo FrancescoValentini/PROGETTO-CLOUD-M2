@@ -9,7 +9,7 @@ namespace FlightInfo_SOAP.WSSoap
         }
 
         public Ac FindAircraftByICAOCode(string ICAO) {
-            throw new NotImplementedException();
+          return AirplanesAPIService.FindAircraftByICAOCode(ICAO);
         }
     }
 }
