@@ -1,7 +1,13 @@
+using FlightInfo_SOAP.WSSoap;
+using SoapCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+builder.Services.AddSoapCore();
+builder.Services.AddScoped<IAirplanesAPIServiceSOAP, AirplanesAPIServiceSOAP>();
 
 var app = builder.Build();
 
@@ -17,5 +23,11 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapRazorPages();
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.UseSoapEndpoint<IAirplanesAPIServiceSOAP>("/service.wsdl", new SoapEncoderOptions(), SoapSerializer.XmlSerializer);
+});
+
 
 app.Run();
