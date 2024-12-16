@@ -63,7 +63,7 @@
                                     </tr>
                                     <tr>
                                         <th><i class="bi bi-123"></i> FLIGHT ID </th>
-                                        <td>DEMO</td>
+                                        <td>@Model.Aircraft.Flight</td>
                                     </tr>
                                     <tr>
                                         <th colspan="2" class="bg-primary text-white text-center">SPEED AND POSITION</th>
@@ -86,14 +86,14 @@
                                     </tr>
                                     <tr>
                                         <th><i class="bi bi-cloud "></i> BAROMETRIC ALTITUDE (feet)</th>
-                                        <td>30,000</td>
+                                        <td>@Model.Aircraft.Alt_baro</td>
                                     </tr>
                                     <tr>
                                         <th colspan="2" class="bg-primary text-white text-center"> TRANSPONDER DETAILS </th>
                                     </tr>
                                     <tr>
                                         <th><i class="bi bi-broadcast-pin"></i> MODE </th>
-                                        <td>Mode S</td>
+                                        <td>@Model.Aircraft.Type</td>
                                     </tr>
                                     <tr>
                                         <th><i class="bi bi-code"></i> SQUAWK </th>
