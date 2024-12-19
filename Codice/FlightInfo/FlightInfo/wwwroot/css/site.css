@@ -43,3 +43,8 @@ body {
     height: 10 px !important;
 
 }
+
+#mapdiv {
+    width: 100%;
+    height: 400px; /* Adjust the height according to your needs */
+}
