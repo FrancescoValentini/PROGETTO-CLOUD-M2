@@ -7,6 +7,26 @@
     ViewData["Title"] = "Find Aircraft";
 }
 
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Controlla se il div mapdiv esiste
+            if (document.getElementById('mapdiv')) {
+                // Serializza i dati del modello come JSON
+                var aircraftData = @Html.Raw(Json.Serialize(Model.Aircraft));
+                console.log(aircraftData);
+                // Verifica se i dati dell'aereo esistono e sono validi
+                renderMap(aircraftData.lat, aircraftData.lon);
+                //renderMap(51.518896, 14.364548);
+
+            }
+        });
+    </script>
+}
+
+
+
+
 <!-- SEARCH BOX -->
 <div class="container-lg">
     <div class="container text-center" >
@@ -117,16 +137,12 @@
                         {
                             <!-- MAP -->
                             <div class="col-md-6 d-flex align-items-center justify-content-center">
-                                <div class="bg-secondary" style="width: 100%; height: 300px; border-radius: 10px;">
-                                    <p class="text-white text-center align-middle mt-5">Map Placeholder</p>
-                                </div>
+                                <div id="mapdiv"></div>
                             </div>
                         }
-                       
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
