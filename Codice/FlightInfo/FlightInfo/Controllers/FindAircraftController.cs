@@ -10,6 +10,7 @@ public class FindAircraftController : Controller
     // GET
     public IActionResult Index()
     {
+        vm.IsValid = true;
         return View(vm);
     }
 
@@ -25,6 +26,9 @@ public class FindAircraftController : Controller
                 vm.Aircraft = AirplanesAPIService.FindAircraftByICAOCode(SearchParam);
                 break;
         }
+
+        if (vm.Aircraft == null) vm.IsValid = false;
+        else vm.IsValid = true;
         return View("Index", vm);
     } 
 }
