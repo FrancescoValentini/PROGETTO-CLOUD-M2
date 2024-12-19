@@ -38,3 +38,8 @@ body {
 #airplane-details-container-column {
     padding: 20px;
 }
+
+.error-alert {
+    height: 10 px !important;
+
+}

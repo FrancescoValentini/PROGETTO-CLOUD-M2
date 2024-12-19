@@ -6,6 +6,7 @@
 @{
     ViewData["Title"] = "Find Aircraft";
 }
+
 <!-- SEARCH BOX -->
 <div class="container-lg">
     <div class="container text-center" >
@@ -27,6 +28,18 @@
                 </form>
             </div>
             <br/>
+            <div class="col" style="padding-top:10px" >
+                @{
+                    if (!Model.IsValid)
+                    {
+                        <div class="alert alert-danger d-flex align-items-center" role="alert" style="font-size: 16px; padding: 10px 20px;">
+                            <i class="bi bi-exclamation-triangle" style="font-size: 24px; margin-right: 10px;"></i>
+                            <div style="font-size: 16px;">Nessun aereo trovato!</div>
+                        </div>
+                    }
+                }
+            </div>
+
             
             <!-- AIRPLANE DETAILS AND MAP-->
             <div class="col" id="airplane-details-container-column">
@@ -100,12 +113,16 @@
                             </table>
                             }
                         </div>
-                        <!-- MAP -->
-                        <div class="col-md-6 d-flex align-items-center justify-content-center">
-                            <div class="bg-secondary" style="width: 100%; height: 300px; border-radius: 10px;">
-                                <p class="text-white text-center align-middle mt-5">Map Placeholder</p>
+                        @if(Model.IsValid && Model.Aircraft != null)
+                        {
+                            <!-- MAP -->
+                            <div class="col-md-6 d-flex align-items-center justify-content-center">
+                                <div class="bg-secondary" style="width: 100%; height: 300px; border-radius: 10px;">
+                                    <p class="text-white text-center align-middle mt-5">Map Placeholder</p>
+                                </div>
                             </div>
-                        </div>
+                        }
+                       
                     </div>
                 </div>
             </div>
