@@ -45,8 +45,21 @@ public class AirplanesAPIService
 
     public static Ac FindAircraftByICAOCode(string ICAO)
     {
+        /* Performs the http GET request
+         * 
+         * DoGETRequest when used with option 2 performs a search using the ICAO CODE
+         * 
+         */
         string JSONResponse = DoGETRequest(2, ICAO).Result;
-        return ParseJSON(JSONResponse).Ac.ToArray()[0];
+
+        if (JSONResponse == null || JSONResponse == "") return null; 
+
+        // if the json is not null or empty parse it and then convert the Ac list to array
+        Ac[] Aircrafts = ParseJSON(JSONResponse).Ac.ToArray();
+
+        if (Aircrafts.Length == 0) return null;
+
+        return Aircrafts[0];
     }
     public static Ac FindAircraftByCallsign(string Callsign)
     {
