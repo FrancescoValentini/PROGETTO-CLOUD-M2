@@ -10,7 +10,7 @@ public class Ac
     public double DbFlags { get; set; }
     public string Desc { get; set; }
     public string OwnOp { get; set; }
-    public double Alt_baro { get; set; }
+    public string Alt_baro { get; set; }
     public double Gs { get; set; }
     public double Ias { get; set; }
     public double Tas { get; set; }
