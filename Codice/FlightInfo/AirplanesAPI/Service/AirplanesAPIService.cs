@@ -64,7 +64,14 @@ public class AirplanesAPIService
     public static Ac FindAircraftByCallsign(string Callsign)
     {
         string JSONResponse = DoGETRequest(1, Callsign).Result;
-        return ParseJSON(JSONResponse).Ac.ToArray()[0];
+
+        if (JSONResponse == null || JSONResponse == "") return null;
+
+        Ac[] Aircrafts = ParseJSON(JSONResponse).Ac.ToArray();
+
+        if (Aircrafts.Length == 0) return null;
+        
+        return Aircrafts[0];
     }
 
 }
