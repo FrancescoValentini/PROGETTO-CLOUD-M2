@@ -1,8 +1,8 @@
 # FlightInfo
 ## MEMBRI DEL GRUPPO
 - [Giulia Balestra](https://github.com/Giulieen)
-- [Giulia Trozzi](https://github.com/GiuliaTrz)
-- [Francesco Valentini](https://github.com/FrancescoValentini)
+- [Giulia Trozzi (126763)](https://github.com/GiuliaTrz)
+- [Francesco Valentini (122433)](https://github.com/FrancescoValentini)
 ## DESCRIZIONE DEL PROGETTO
 - [Specifiche del Docente](Documentazione/SpecificheDocente.md)
 - [Specifiche API](Documentazione/DocumentazioneAPI.md)
