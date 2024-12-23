@@ -1,0 +1,19 @@
+﻿services:
+  flightinfo:
+    image: flightinfo
+    build:
+      context: .
+      dockerfile: FlightInfo/Dockerfile
+    container_name: "flightinfo-MVC"
+    ports:
+      - "8098:8080"
+
+
+  flightinfo-soap:
+    image: flightinfo-soap
+    build:
+      context: .
+      dockerfile: FlightInfo-SOAP/Dockerfile
+    container_name: "flightinfo-SOAP"
+    ports:
+      - "8099:8080"
