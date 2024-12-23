@@ -36,6 +36,22 @@ public class AirplanesAPIService
 
        return json;
     }
+
+    /*
+     * Does a http GET request 
+     * Input: url
+     * Output: response body
+     */
+    
+    private static async Task<string> HttpGetRequest(string url)
+    {
+        HttpClient Client = new HttpClient();
+        HttpResponseMessage Response = await Client.GetAsync(url);
+        Response.EnsureSuccessStatusCode();
+        string json = await Response.Content.ReadAsStringAsync();
+        return json;
+    }
+    
     private static APIResponse ParseJSON(string json)
     {
         APIResponse Response = JsonConvert.DeserializeObject<APIResponse>(json);
