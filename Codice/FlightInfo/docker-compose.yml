@@ -1,0 +1,13 @@
+﻿services:
+  flightinfo:
+    image: flightinfo
+    build:
+      context: .
+      dockerfile: FlightInfo/Dockerfile
+
+
+  flightinfo-soap:
+    image: flightinfo-soap
+    build:
+      context: .
+      dockerfile: FlightInfo-SOAP/Dockerfile
