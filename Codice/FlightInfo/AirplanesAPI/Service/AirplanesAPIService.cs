@@ -1,5 +1,6 @@
 using AirplanesAPI.Models;
 using Newtonsoft.Json;
+using System.Reflection.Metadata;
 using System.Runtime.CompilerServices;
 using static System.Net.WebRequestMethods;
 
@@ -42,7 +43,6 @@ public class AirplanesAPIService
      * Input: url
      * Output: response body
      */
-    
     private static async Task<string> HttpGetRequest(string url)
     {
         HttpClient Client = new HttpClient();
@@ -51,6 +51,38 @@ public class AirplanesAPIService
         string json = await Response.Content.ReadAsStringAsync();
         return json;
     }
+
+    /*
+     * Create the url for the request
+     * Input : 
+     *  - searchType
+     *  - search parameter
+     *  
+     * Output: Complete url for the request
+     * 
+     */
+    private static String BuildUrl(int searchType , String searchParameter)
+    {
+        string BaseUrl = "https://api.airplanes.live/v2/";
+
+
+        switch (searchType)
+        {
+            case 1:
+                BaseUrl = BaseUrl + "callsign/";
+
+                break;
+
+            case 2:
+                BaseUrl = BaseUrl + "hex/";
+
+                break;
+
+        }
+
+        return BaseUrl + searchParameter;
+    }
+
     
     private static APIResponse ParseJSON(string json)
     {
