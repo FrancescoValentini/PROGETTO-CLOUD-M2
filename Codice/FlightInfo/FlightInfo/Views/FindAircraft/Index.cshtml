@@ -10,22 +10,14 @@
 @section Scripts {
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // Controlla se il div mapdiv esiste
+            // If the mapdiv exists the request was successful
             if (document.getElementById('mapdiv')) {
-                // Serializza i dati del modello come JSON
                 var aircraftData = @Html.Raw(Json.Serialize(Model.Aircraft));
-                console.log(aircraftData);
-                // Verifica se i dati dell'aereo esistono e sono validi
                 renderMap(aircraftData.lat, aircraftData.lon);
-                //renderMap(51.518896, 14.364548);
-
             }
         });
     </script>
 }
-
-
-
 
 <!-- SEARCH BOX -->
 <div class="container-lg">
@@ -34,9 +26,9 @@
             <div class="col">
                 <form asp-action="Find" asp-controller="FindAircraft" method="POST">
                     <div class="input-group input-group-lg">
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" id="SearchParam" name="SearchParam">
+                        <input type="text" class="form-control" aria-label="SearchParam textbox" aria-describedby="inputGroup-sizing-lg" id="SearchParam" name="SearchParam">
                             <span class="input-group-text" id="inputGroup-sizing-lg">
-                                <select class="form-select" aria-label="Default select example" id="SearchMode" name="SearchMode">
+                            <select class="form-select" aria-label="SearchMode Select" id="SearchMode" name="SearchMode">
                                     <option value="1" selected>Callsign</option>
                                     <option value="2">ICAO</option>
                                 </select>
@@ -67,75 +59,75 @@
                     <div class="row align-items-start">
                         <!-- AIRCRAFT DETAILS -->
                         <div class="col-md-6">
-                                @if (Model.Aircraft != null)
-                                {
-                                   
+                            @if (Model.Aircraft != null)
+                            {   
                                 <table class="table table-striped table-hover">
-                                <thead>
-                                    <tr>
-                                        <th scope="col" colspan="2" class="text-center bg-primary text-white">
-                                            AIRCRAFT DETAILS
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th><i class="bi bi-broadcast"></i> ICAO CODE </th>
-                                        <td>@Model.Aircraft.Hex</td>
-                                    </tr>
-                                    <tr>
-                                        <th><i class="bi bi-airplane"></i> AIRCRAFT </th>
-                                        <td>@Model.Aircraft.Desc</td>
-                                    </tr>
-                                    <tr>
-                                        <th><i class="bi bi-briefcase"></i> AIRCRAFT OWNER </th>
-                                        <td>@Model.Aircraft.OwnOp</td>
-                                    </tr>
-                                    <tr>
-                                        <th><i class="bi bi-123"></i> FLIGHT ID </th>
-                                        <td>@Model.Aircraft.Flight</td>
-                                    </tr>
-                                    <tr>
-                                        <th colspan="2" class="bg-primary text-white text-center">SPEED AND POSITION</th>
-                                    </tr>
-                                    <tr>
-                                        <th><i class="bi bi-speedometer"></i> GROUND SPEED (knots) </th>
-                                        <td>@Model.Aircraft.Gs</td>
-                                    </tr>
-                                    <tr>
-                                        <th><i class="bi bi-compass"></i> TRACK (degrees) </th>
-                                        <td>@Model.Aircraft.Track</td>
-                                    </tr>
-                                    <tr>
-                                        <th><i class="bi bi-geo"></i> LATITUDE </th>
-                                        <td>@Model.Aircraft.Lat</td>
-                                    </tr>
-                                    <tr>
-                                        <th><i class="bi bi-geo-alt"></i> LONGITUDE </th>
-                                        <td>@Model.Aircraft.Lon</td>
-                                    </tr>
-                                    <tr>
-                                        <th><i class="bi bi-cloud "></i> BAROMETRIC ALTITUDE (feet)</th>
-                                        <td>@Model.Aircraft.Alt_baro</td>
-                                    </tr>
-                                    <tr>
-                                        <th colspan="2" class="bg-primary text-white text-center"> TRANSPONDER DETAILS </th>
-                                    </tr>
-                                    <tr>
-                                        <th><i class="bi bi-broadcast-pin"></i> MODE </th>
-                                        <td>@Model.Aircraft.Type</td>
-                                    </tr>
-                                    <tr>
-                                        <th><i class="bi bi-code"></i> SQUAWK </th>
-                                        <td>@Model.Aircraft.Squawk</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" colspan="2" class="text-center bg-primary text-white">
+                                                AIRCRAFT DETAILS
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th><i class="bi bi-broadcast"></i> ICAO CODE </th>
+                                            <td>@Model.Aircraft.Hex</td>
+                                        </tr>
+                                        <tr>
+                                            <th><i class="bi bi-airplane"></i> AIRCRAFT </th>
+                                            <td>@Model.Aircraft.Desc</td>
+                                        </tr>
+                                        <tr>
+                                            <th><i class="bi bi-briefcase"></i> AIRCRAFT OWNER </th>
+                                            <td>@Model.Aircraft.OwnOp</td>
+                                        </tr>
+                                        <tr>
+                                            <th><i class="bi bi-123"></i> FLIGHT ID </th>
+                                            <td>@Model.Aircraft.Flight</td>
+                                        </tr>
+                                        <tr>
+                                            <th colspan="2" class="bg-primary text-white text-center">SPEED AND POSITION</th>
+                                        </tr>
+                                        <tr>
+                                            <th><i class="bi bi-speedometer"></i> GROUND SPEED (knots) </th>
+                                            <td>@Model.Aircraft.Gs</td>
+                                        </tr>
+                                        <tr>
+                                            <th><i class="bi bi-compass"></i> TRACK (degrees) </th>
+                                            <td>@Model.Aircraft.Track</td>
+                                        </tr>
+                                        <tr>
+                                            <th><i class="bi bi-geo"></i> LATITUDE </th>
+                                            <td>@Model.Aircraft.Lat</td>
+                                        </tr>
+                                        <tr>
+                                            <th><i class="bi bi-geo-alt"></i> LONGITUDE </th>
+                                            <td>@Model.Aircraft.Lon</td>
+                                        </tr>
+                                        <tr>
+                                            <th><i class="bi bi-cloud "></i> BAROMETRIC ALTITUDE (feet)</th>
+                                            <td>@Model.Aircraft.Alt_baro</td>
+                                        </tr>
+                                        <tr>
+                                            <th colspan="2" class="bg-primary text-white text-center"> TRANSPONDER DETAILS </th>
+                                        </tr>
+                                        <tr>
+                                            <th><i class="bi bi-broadcast-pin"></i> MODE </th>
+                                            <td>@Model.Aircraft.Type</td>
+                                        </tr>
+                                        <tr>
+                                            <th><i class="bi bi-code"></i> SQUAWK </th>
+                                            <td>@Model.Aircraft.Squawk</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             }
                         </div>
+
+                        <!-- MAP -->
                         @if(Model.IsValid && Model.Aircraft != null)
                         {
-                            <!-- MAP -->
                             <div class="col-md-6 d-flex align-items-center justify-content-center">
                                 <div id="mapdiv"></div>
                             </div>
