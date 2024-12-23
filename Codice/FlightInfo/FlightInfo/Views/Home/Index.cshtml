@@ -6,11 +6,80 @@
     <h1 class="display-4">Flight Info</h1>
 </div>
 <div class="div-centered">
-    <p class = "paragraph">
-        FlightInfo è una webapp che permette di effettuare ricerche 
-        sugli aereomobili mediante il loro callsign o il codice ICAO 
-        da 24-bit. <br/>
-        La API REST che offre tale servizio 
-        è https://airplanes.live/api-guide/
+    <p class="paragraph">
+        <br/> <br/>
+        FlightInfo consente di ottenere le informazioni di un aeromobile in volo effettuando la ricerca attraverso il
+        callsign o il suo codice ICAO.
+        <br/> <br/>
+        <b>FlightInfo non raccoglie direttamente i dati </b> ma fornisce una interfaccia grafica
+        e user friendly per interagire con il servizio <a href="https://airplanes.live">https://airplanes.live</a> che
+        mette a disposizione le informazioni raccolte dai suoi utenti volontari 'feeder' mediante interfaccia REST senza
+        necessità di autenticazione o pagamenti (ma con limitazioni), inoltre per gli sviluppatori FlightInfo consente
+        l'accesso alle proprie funzionalità di ricerca anche tramite un servizio SOAP agendo quindi da "traduttore"
+        REST < -- > SOAP.
     </p>
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    L'ICAO
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    L'ICAO (International Civil Aviation Organization) è un'agenzia autonoma delle Nazioni Unite incaricata 
+                    di sviluppare i principi e le tecniche della navigazione aerea internazionale, delle rotte e degli aeroporti 
+                    e promuovere la progettazione e lo sviluppo del trasporto aereo internazionale rendendolo più sicuro e ordinato.
+                    <br/> <br/>
+                    <h5>Il codice ICAO</h5>
+                    Il codice ICAO è un identificatore univoco a 24 bit assegnato a ciascun aeromobile registrato a livello globale. 
+                    Questo codice, rappresentato in formato esadecimale per comodità, è parte integrante del sistema di identificazione 
+                    aerea e viene trasmesso automaticamente dai transponder ADS-B degli aeromobili.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Il sistema ADS-B
+                </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    Il sistema ADS-B (Automatic Dependent Surveillance-Broadcast) è una tecnologia di sorveglianza aerea 
+                    che consente agli aeromobili di trasmettere automaticamente la loro posizione e altri dati di volo 
+                    in tempo reale.
+
+                    ADS-B è un sistema "automatico" che non richiede l'interazione del pilota o di altri attori esterni
+                    per attivare la trasmissione ma è considerato "dipendente" in quanto dipende dai dati provenienti dai 
+                    sistemi di navigazione del velivolo che vengono inclusi nel pacchetto ADS-B per poi essere trasmessi, 
+                    i dati vengono inviati in broadcast, il trasmettitore invia i pacchetti senza sapere chi li riceverà 
+                    o se arriveranno integri.
+                    <br/> <br/>
+                    <b>Frequenze utilizzate da ADS-B:</b>
+                    <br/>
+                    <ul>
+                        <li>
+                            <b> 1090 MHz</b>: utilizzata dalla maggior parte degli aeromobili commerciali e internazionali.
+                        </li>
+                        <li>
+                            <b> 978 MHz (UAT)</b>: usata principalmente negli Stati Uniti.
+                        </li>
+                    </ul> 
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Accordion Item #3
+                </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
