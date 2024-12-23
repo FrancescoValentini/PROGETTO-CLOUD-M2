@@ -18,14 +18,14 @@
         l'accesso alle proprie funzionalità di ricerca anche tramite un servizio SOAP agendo quindi da "traduttore"
         REST < -- > SOAP.
     </p>
-    <div class="accordion" id="accordionExample">
+    <div class="accordion" id="accordion-Definizioni">
         <div class="accordion-item">
             <h2 class="accordion-header">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-ICAO" aria-expanded="true" aria-controls="collapse-ICAO">
                     L'ICAO
                 </button>
             </h2>
-            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+            <div id="collapse-ICAO" class="accordion-collapse collapse" data-bs-parent="#accordion-Definizioni">
                 <div class="accordion-body">
                     L'ICAO (International Civil Aviation Organization) è un'agenzia autonoma delle Nazioni Unite incaricata 
                     di sviluppare i principi e le tecniche della navigazione aerea internazionale, delle rotte e degli aeroporti 
@@ -40,11 +40,11 @@
         </div>
         <div class="accordion-item">
             <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-ADSB" aria-expanded="false" aria-controls="collapse-ADSB">
                     Il sistema ADS-B
                 </button>
             </h2>
-            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div id="collapse-ADSB" class="accordion-collapse collapse" data-bs-parent="#accordion-Definizioni">
                 <div class="accordion-body">
                     Il sistema ADS-B (Automatic Dependent Surveillance-Broadcast) è una tecnologia di sorveglianza aerea 
                     che consente agli aeromobili di trasmettere automaticamente la loro posizione e altri dati di volo 
@@ -66,18 +66,82 @@
                             <b> 978 MHz (UAT)</b>: usata principalmente negli Stati Uniti.
                         </li>
                     </ul> 
+
+                    <h5>Cifratura</h5>
+                    Esiste una modalità riservata esclusivamente per le Forze Armate degli Stati Uniti e della NATO chiamata "Mode 5". 
+                    Questa modalità è una versione cifrata del "Mode S" civile. Mode 5 utilizza algoritmi di crittografia avanzata per proteggere i dati trasmessi, 
+                    che includono identificazioni e informazioni operative sensibili. A differenza del Mode S civile, le trasmissioni in Mode 5 possono essere ricevute 
+                    ma non decodificate, garantendo così una maggiore sicurezza. Solo dispositivi militari autorizzati (configurati con le variabili crittografiche 
+                    corrette) possono interagire con queste trasmissioni.
+                    <br /><br />
+                    <b>L'ADS-B utilizzato in ambito civile non è cifrato, questo ne consente la decodifica non solo da appassionati ma anche dai piloti stessi migliorando
+                        la sicurezza in volo.
+                    </b>
                 </div>
             </div>
         </div>
         <div class="accordion-item">
             <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    Accordion Item #3
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-RXADSB" aria-expanded="false" aria-controls="collapse-RXADSB">
+                    Ricevere il segnale ADS-B
                 </button>
             </h2>
-            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div id="collapse-RXADSB" class="accordion-collapse collapse" data-bs-parent="#accordion-Definizioni">
                 <div class="accordion-body">
-                    <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                    Ricevere le trasmissioni ADS-B è un’operazione semplice ed economica. Uno dei metodi più comuni è l’utilizzo di chiavette USB SDR (Software Defined Radio),
+                    come le popolari RTL-SDR. Questi dispositivi, originariamente progettati per ricevere segnali DVB-T o FM, possono essere configurati per ricevere e decodificare
+                    i segnali ADS-B grazie al loro ampio intervallo di frequenze supportate (inclusa quella di 1090 MHz).
+
+                    <br /><br />
+                    Dopo aver acquistato una chiavetta compatibile, è necessario installare i driver, posizionare l'antenna e utilizzare software open-source come dump1090. 
+                    Questo software sintonizza il ricevitore sulla frequenza corretta, demodula il segnale e decodifica i pacchetti ADS-B, rendendo disponibili le informazioni
+                    via interfaccia web o in formato JSON.
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-ADSB-MLAT" aria-expanded="false" aria-controls="#collapse-ADSB-MLAT">
+                    Differenze tra ADS-B e MLAT (Multilaterazione)
+                </button>
+            </h2>
+            <div id="collapse-ADSB-MLAT" class="accordion-collapse collapse" data-bs-parent="#accordion-Definizioni">
+                <div class="accordion-body">
+                    La principale differenza tra ADS-B e MLAT (Multilaterazione) risiede nel modo in cui vengono determinate le informazioni sulla posizione dell’aeromobile:
+                    <ul>
+                        <li>
+                            <b>ADS-B</b>: Gli aeromobili trasmettono direttamente la propria posizione, velocità e altitudine grazie a dati GPS integrati. 
+                            Questi dati sono estremamente precisi e possono essere ricevuti anche da un singolo ricevitore.
+                        </li>
+                        <li>
+                            <b>MLAT</b>: La posizione dell’aeromobile viene calcolata tramite la sincronizzazione temporale dei segnali ricevuti da una rete 
+                            di almeno quattro ricevitori. Questo metodo è utilizzato principalmente per tracciare velivoli privi di transponder ADS-B o con 
+                            transponder in modalità base (Mode A/C). La precisione di MLAT dipende dalla qualità e densità dei ricevitori nella regione.
+
+                        </li>
+                    </ul>
+                    <br />
+                    ADS-B è più preciso e non richiede un’infrastruttura complessa, mentre MLAT può essere meno affidabile in aree con pochi ricevitori sincronizzati.
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-TECNOLOGIE" aria-expanded="false" aria-controls="#collapse-TECNOLOGIE">
+                    Tecnologie Utilizzate
+                </button>
+            </h2>
+            <div id="collapse-TECNOLOGIE" class="accordion-collapse collapse" data-bs-parent="#accordion-Definizioni">
+                <div class="accordion-body">
+                    <ul>
+                        <li><a href="https://dotnet.microsoft.com/it-it/apps/aspnet">ASP.NET Core MVC</a></li>
+                        <li><a href="https://visualstudio.microsoft.com/it/">Microsoft Visual Studio</a></li>
+                        <li><a href="https://www.jetbrains.com/rider/">JetBrains Rider</a></li>
+                        <li><a href="https://code.visualstudio.com/">Microsoft Visual Studio Code</a></li>
+                        <li><a href="https://www.docker.com/">Docker</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
