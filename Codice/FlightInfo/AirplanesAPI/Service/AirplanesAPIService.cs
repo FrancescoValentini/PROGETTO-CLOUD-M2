@@ -43,6 +43,9 @@ public class AirplanesAPIService
             case API_SEARCH_OPTIONS.ICAO:
                 BaseUrl = BaseUrl + "hex/";
                 break;
+            case API_SEARCH_OPTIONS.POINT:
+                BaseUrl += "point/";
+                break;
 
         }
 
