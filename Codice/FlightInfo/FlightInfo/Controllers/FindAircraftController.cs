@@ -11,7 +11,9 @@ public class FindAircraftController : Controller
     public IActionResult Index()
     {
         vm.IsValid = true;
+        vm.Aircraft = AirplanesAPIService.FindAircraftsByCoordinates("45.62261", "8.72821", "50")[0];
         return View(vm);
+
     }
 
     [HttpPost]
