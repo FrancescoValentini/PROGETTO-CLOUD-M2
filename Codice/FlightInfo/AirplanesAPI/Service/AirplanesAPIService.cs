@@ -88,4 +88,20 @@ public class AirplanesAPIService
         
         return Aircrafts[0];
     }
+
+    public static Ac[] FindAircraftsByCoordinates(string lat, string lon, string nm)
+    {
+        string SearchParameter = lat + "/" + lon + "/" + nm;
+        string Url = BuildUrl(API_SEARCH_OPTIONS.POINT, SearchParameter);
+        
+        string JSONResponse = HttpGetRequest(Url).Result;
+
+        if (JSONResponse == null || JSONResponse == "") return null;
+
+        Ac[] Aircrafts = ParseJSON(JSONResponse).Ac.ToArray();
+
+        if (Aircrafts.Length == 0) return null;
+        
+        return Aircrafts;
+    }
 }
