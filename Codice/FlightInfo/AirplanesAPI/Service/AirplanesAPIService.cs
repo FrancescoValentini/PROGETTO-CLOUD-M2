@@ -12,7 +12,8 @@ public class AirplanesAPIService
     private string BaseUrl;
     private HttpClient Client;
     public AirplanesAPIService(HttpClient httpClient, IConfiguration configuration) {
-        BaseUrl = configuration["AirplanesAPI:BaseUrl"] ?? throw new ArgumentNullException("BaseUrl is not configured in appsettings.json");
+        if (configuration["AirplanesAPI:BaseUrl"] == null) throw new ArgumentNullException("BaseUrl is not configured in appsettings.json");
+        BaseUrl = configuration["AirplanesAPI:BaseUrl"];
         this.Client = httpClient;
     }
 
