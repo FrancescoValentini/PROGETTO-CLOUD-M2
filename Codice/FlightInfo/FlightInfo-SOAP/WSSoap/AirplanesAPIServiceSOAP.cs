@@ -4,12 +4,17 @@ using AirplanesAPI.Service;
 namespace FlightInfo_SOAP.WSSoap
 {
     public class AirplanesAPIServiceSOAP : IAirplanesAPIServiceSOAP {
+        private readonly AirplanesAPIService api;
+
+        public AirplanesAPIServiceSOAP(AirplanesAPIService airplanesService) {
+            api = airplanesService;
+        }
         public Ac FindAircraftByCallsign(string Callsign) {
-            return AirplanesAPIService.FindAircraftByCallsign(Callsign);
+            return api.FindAircraftByCallsign(Callsign);
         }
 
         public Ac FindAircraftByICAOCode(string ICAO) {
-          return AirplanesAPIService.FindAircraftByICAOCode(ICAO);
+          return api.FindAircraftByICAOCode(ICAO);
         }
     }
 }

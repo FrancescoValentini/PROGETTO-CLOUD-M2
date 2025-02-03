@@ -7,14 +7,16 @@ namespace APITest
     {
          public static void Main(string[] args)
         {
+
+            AirplanesAPIService api = new AirplanesAPIService("https://api.airplanes.live/v2/");
             // Display the number of command line arguments.
             Console.WriteLine("Hello world");
 
-            Ac Response = AirplanesAPIService.FindAircraftByCallsign("TYPHN330");
-            Console.WriteLine(Response.Desc);
+            Ac Response = api.FindAircraftByCallsign("APCHE02");
+            Console.WriteLine(Response.Flight);
 
-            Ac Response1 = AirplanesAPIService.FindAircraftByICAOCode("43c79c");
-            Console.WriteLine(Response1.Desc);
+            Ac Response1 = api.FindAircraftByICAOCode("480889");
+            Console.WriteLine(Response1.Flight);
 
 
         }

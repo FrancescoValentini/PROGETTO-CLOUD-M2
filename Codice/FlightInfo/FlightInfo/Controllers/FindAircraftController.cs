@@ -7,11 +7,17 @@ namespace FlightInfo.Controllers;
 public class FindAircraftController : Controller
 {
     private AircraftViewModel vm = new AircraftViewModel();
+    private readonly AirplanesAPIService api;
+
+    public FindAircraftController(AirplanesAPIService airplanesService) {
+        api = airplanesService;
+    }
+
     // GET
     public IActionResult Index()
     {
         vm.IsValid = true;
-        vm.Aircraft = AirplanesAPIService.FindAircraftsByCoordinates("45.62261", "8.72821", "50")[0];
+        vm.Aircraft = api.FindAircraftsByCoordinates("45.62261", "8.72821", "50")[0];
         return View(vm);
 
     }
@@ -22,10 +28,10 @@ public class FindAircraftController : Controller
         switch (SearchMode) 
         {
             case 1:
-                vm.Aircraft = AirplanesAPIService.FindAircraftByCallsign(SearchParam);
+                vm.Aircraft = api.FindAircraftByCallsign(SearchParam);
                 break;
             case 2:
-                vm.Aircraft = AirplanesAPIService.FindAircraftByICAOCode(SearchParam);
+                vm.Aircraft = api.FindAircraftByICAOCode(SearchParam);
                 break;
         }
 
