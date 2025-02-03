@@ -1,19 +1,28 @@
 using AirplanesAPI.Models;
 using Newtonsoft.Json;
+using System.Net.Http;
+using Microsoft.Extensions.Configuration;
+
 
 namespace AirplanesAPI.Service;
 
 public class AirplanesAPIService
 {
 
+    private string BaseUrl;
+    private HttpClient Client;
+    public AirplanesAPIService(HttpClient httpClient, IConfiguration configuration) {
+        BaseUrl = configuration["AirplanesAPI:BaseUrl"] ?? throw new ArgumentNullException("BaseUrl is not configured in appsettings.json");
+        this.Client = httpClient;
+    }
+
     /*
      * Does a http GET request 
      * Input: url
      * Output: response body
      */
-    private static async Task<string> HttpGetRequest(string url)
+    private async Task<string> HttpGetRequest(string url)
     {
-        HttpClient Client = new HttpClient();
         HttpResponseMessage Response = await Client.GetAsync(url);
         Response.EnsureSuccessStatusCode();
         string json = await Response.Content.ReadAsStringAsync();
@@ -29,9 +38,9 @@ public class AirplanesAPIService
      * Output: Complete url for the request
      * 
      */
-    private static string BuildUrl(API_SEARCH_OPTIONS searchType , string searchParameter)
+    private string BuildUrl(API_SEARCH_OPTIONS searchType , string searchParameter)
     {
-        string BaseUrl = "https://api.airplanes.live/v2/";
+      //  string BaseUrl = "https://api.airplanes.live/v2/";
 
 
         switch (searchType)
@@ -53,12 +62,12 @@ public class AirplanesAPIService
     }
 
     
-    private static APIResponse ParseJSON(string json)
+    private APIResponse ParseJSON(string json)
     {
         return  JsonConvert.DeserializeObject<APIResponse>(json);   
     }
 
-    public static Ac FindAircraftByICAOCode(string ICAO)
+    public Ac FindAircraftByICAOCode(string ICAO)
     {
         /* Performs the http GET request
          * 
@@ -76,7 +85,7 @@ public class AirplanesAPIService
 
         return Aircrafts[0];
     }
-    public static Ac FindAircraftByCallsign(string Callsign)
+    public Ac FindAircraftByCallsign(string Callsign)
     {
         string JSONResponse = HttpGetRequest(BuildUrl(API_SEARCH_OPTIONS.CALLSIGN, Callsign)).Result;
 
@@ -89,7 +98,7 @@ public class AirplanesAPIService
         return Aircrafts[0];
     }
 
-    public static Ac[] FindAircraftsByCoordinates(string lat, string lon, string nm)
+    public Ac[] FindAircraftsByCoordinates(string lat, string lon, string nm)
     {
         string SearchParameter = lat + "/" + lon + "/" + nm;
         string Url = BuildUrl(API_SEARCH_OPTIONS.POINT, SearchParameter);
